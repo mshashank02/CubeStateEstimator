@@ -1,5 +1,6 @@
 import os
 import gymnasium as gym
+import gymnasium_robotics
 import numpy as np
 from sb3_contrib import TQC
 from stable_baselines3.common.vec_env import VecNormalize, DummyVecEnv
@@ -9,7 +10,7 @@ from PIL import Image
 import json
 
 # --- Config ---
-ENV_ID = "HandManipulateBlockRotateXYZ-v1"
+ENV_ID = "HandManipulateBlock_ContinuousTouchSensors-v1"
 SEED = 1
 STEPS = 620000
 N_EPISODES = 500  # Increased to ~100,000 images
@@ -22,7 +23,7 @@ def make_env():
     env = gym.make(ENV_ID, render_mode="rgb_array")
     env.reset(seed=SEED)
     env = DummyVecEnv([lambda: env])
-    env = VecNormalize.load(f"models/{ENV_ID}/vecnorm_{STEPS}.pkl", env)
+    env = VecNormalize.load(f"/home/mshashank02/CubeStateEsimator/vecnorm_600000.pkl", env)
     env.training = False
     env.norm_reward = False
     return env
@@ -30,7 +31,7 @@ def make_env():
 env = make_env()
 
 # Load trained model
-model = TQC.load(f"models/{ENV_ID}/best_model_{STEPS}_steps.zip", env=env, device="cuda")
+model = TQC.load(f"/home/mshashank02/CubeStateEsimator/best_model_620000_steps.zip", env=env, device="cuda")
 
 # --- Dataset buffers ---
 poses = []
