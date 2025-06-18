@@ -1,0 +1,21 @@
+config.json: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 502/502 [00:00<00:00, 3.21MB/s]
+model.safetensors: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 346M/346M [00:32<00:00, 10.8MB/s]
+Epoch 1/30:   0%|                                                                                                                                                                 | 0/1250 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/shashank/CubeStateEstimator/src/StateEstimate.py", line 93, in <module>
+    for imgs, pos_gt, quat_gt in tqdm(train_loader, desc=f"Epoch {epoch+1}/{EPOCHS}"):
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 789, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 52, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/shashank/CubeStateEstimator/src/StateEstimate.py", line 42, in __getitem__
+    image = Image.open(item['image']).convert('RGB')
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/PIL/Image.py", line 3505, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: 'pose_dataset_HandManipulateBlock_ContinuousTouchSensors-v1_620000/ep083_step049.png'

@@ -13,7 +13,7 @@ from transformers import ViTModel, ViTConfig
 import wandb
 
 # --- Configuration ---
-DATA_DIR = "/home/mshashank02/CubeStateEsimator/pose_dataset_HandManipulateBlock_ContinuousTouchSensors-v1_620000"
+DATA_DIR = "/home/shashank/Downloads/pose_dataset_HandManipulateBlock_ContinuousTouchSensors-v1_620000/"
 IMG_SIZE = 480
 BATCH_SIZE = 32
 EPOCHS = 30
@@ -39,7 +39,7 @@ class PoseDataset(Dataset):
 
     def __getitem__(self, idx):
         item = self.items[idx]
-        image = Image.open(item['image']).convert('RGB')
+        image = Image.open(os.path.join(BASE_DIR, item['image'])).convert('RGB')
         if self.transform:
             image = self.transform(image)
         position = torch.tensor(item['position'], dtype=torch.float32)
