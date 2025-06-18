@@ -1,0 +1,29 @@
+Epoch 1/30:   0%|                                                                                                                                                                 | 0/1250 [00:03<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/shashank/CubeStateEstimator/src/StateEstimate.py", line 97, in <module>
+    pos_pred, quat_pred = model(imgs)
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shashank/CubeStateEstimator/src/StateEstimate.py", line 79, in forward
+    x = self.vit(pixel_values=x).last_hidden_state[:, 0]  # CLS token
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/transformers/models/vit/modeling_vit.py", line 550, in forward
+    embedding_output = self.embeddings(
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/transformers/models/vit/modeling_vit.py", line 106, in forward
+    embeddings = self.patch_embeddings(pixel_values, interpolate_pos_encoding=interpolate_pos_encoding)
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shashank/miniconda3/envs/ShadowHandRL/lib/python3.10/site-packages/transformers/models/vit/modeling_vit.py", line 161, in forward
+    raise ValueError(
+ValueError: Input image size (480*480) doesn't match model (224*224).

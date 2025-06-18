@@ -13,7 +13,7 @@ from transformers import ViTModel, ViTConfig
 import wandb
 
 # --- Configuration ---
-DATA_DIR = "/home/shashank/Downloads/pose_dataset_HandManipulateBlock_ContinuousTouchSensors-v1_620000/"
+DATA_DIR = "/home/shashank/CubeStateEstimator/pose_dataset_HandManipulateBlock_ContinuousTouchSensors-v1_620000/"
 IMG_SIZE = 480
 BATCH_SIZE = 32
 EPOCHS = 30
