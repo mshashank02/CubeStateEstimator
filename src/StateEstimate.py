@@ -14,7 +14,7 @@ import wandb
 
 # --- Configuration ---
 DATA_DIR = "/home/shashank/CubeStateEstimator/pose_dataset_HandManipulateBlock_ContinuousTouchSensors-v1_620000/"
-IMG_SIZE = 480
+IMG_SIZE = 224
 BATCH_SIZE = 32
 EPOCHS = 30
 LR = 1e-4
