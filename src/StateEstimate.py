@@ -39,7 +39,8 @@ class PoseDataset(Dataset):
 
     def __getitem__(self, idx):
         item = self.items[idx]
-        image = Image.open(os.path.join(BASE_DIR, item['image'])).convert('RGB')
+        image_path = os.path.join(DATA_DIR, os.path.basename(item['image']))
+        image = Image.open(image_path).convert('RGB')
         if self.transform:
             image = self.transform(image)
         position = torch.tensor(item['position'], dtype=torch.float32)
